@@ -240,9 +240,10 @@ const ProjectsSection: FC = () => {
                 <CardContent className="p-6 flex-grow">
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.tags.map((tag) => (
-                      <Badge
-                        key={tag}
-                        variant="secondary"
+                   <Badge
+  key={tag}
+  variant="outline"
+
                         className="px-2 py-0.5 text-[9px] font-bold uppercase bg-[var(--chart-3)]/10 text-[var(--chart-3)] border-none"
                       >
                         {tag}

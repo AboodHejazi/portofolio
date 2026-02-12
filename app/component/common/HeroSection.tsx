@@ -9,22 +9,25 @@ const HeroSection = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   // وظيفة الانتقال السلس للمشاريع
-  const scrollToProjects = (e) => {
-    e.preventDefault();
-    const element = document.getElementById("ProjectSection");
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+  const scrollToProjects = (
+  e: React.MouseEvent<HTMLButtonElement>
+) => {
+  e.preventDefault();
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
+  const element = document.getElementById("ProjectSection");
+  if (element) {
+    const offset = 80;
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const elementRect = element.getBoundingClientRect().top;
+    const elementPosition = elementRect - bodyRect;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
+};
 
   return (
     <section className="relative overflow-hidden bg-white py-20 lg:py-32">

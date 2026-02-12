@@ -121,29 +121,39 @@ const Header: FC = () => {
     { name: "Stay in touch", href: "modal" }, // نغير الـ href لتمييزه
   ];
 
-  const handleAction = (e, href) => {
-    e.preventDefault();
-    if (href === "modal") {
-      setIsContactOpen(true);
-      setIsOpen(false);
-      return;
-    }
+ const handleAction = (
+  e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+  href: string
+) => {
+  e.preventDefault();
 
-    if (href.startsWith("#")) {
-      if (href === "#top") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        const targetId = href.replace("#", "");
-        const element = document.getElementById(targetId);
-        if (element) {
-          const offset = 80;
-          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-          window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
-        }
+  if (href === "modal") {
+    setIsContactOpen(true);
+    setIsOpen(false);
+    return;
+  }
+
+  if (href.startsWith("#")) {
+    if (href === "#top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const targetId = href.replace("#", "");
+      const element = document.getElementById(targetId);
+      if (element) {
+        const offset = 80;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.pageYOffset;
+
+        window.scrollTo({
+          top: elementPosition - offset,
+          behavior: "smooth",
+        });
       }
-      setIsOpen(false);
     }
-  };
+    setIsOpen(false);
+  }
+};
+
 
   return (
     <>
